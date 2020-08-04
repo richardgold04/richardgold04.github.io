@@ -1,1 +1,0 @@
-# richardgold04.github.io
