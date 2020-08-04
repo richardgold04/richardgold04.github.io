@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megrendelés</title>
+    <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="container-fluid">
+            <div class="row navbarrow">
+                <div class="col-4 navbarlogo">
+                    <img style="text-align: left" width="150px" src="/img/creative.png" alt="aranyrichard.hu">
+                </div>
+                <div class="col-8 navbarmenu">
+                    <a href="/home.html/#rolunk">Rólunk</a>
+                    <a href="#news">Szolgáltatásaink</a>
+                    <a href="#contact">Portfólió</a>
+                    <a href="#contact">Kapcsolat</a>
+                    <a href="#contact">Ajánlat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-heading">
+        <h5>Megrendelő űrlap</h5>
+        <h1>Állítsd össze a saját árajánlatodat</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div class="form">
+                    <form>
+                        <div class="form-group checkbox">
+                            <label for="exampleFormControlInput1">Megrendelő Neve</label>
+                            <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Név">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email address</label>
+                            <input type="company name" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Cégnév / Projektnév">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email cím</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="név@példa.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Telefonszám</label>
+                            <input type="phone" class="form-control" id="exampleFormControlInput1" placeholder="+36...">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Mivel foglalkozik a cég / projekt?</label>
+                            <input type="about" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Röviden">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Mi a célod a weboldallal? Kik az ügyfeleid? Milyen
+                                elképzeléseid vannak?</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="custom-control custom-switch checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                            <label class="custom-control-label" for="customSwitch1">Rendelkezem tárhellyel és domainnel
+                                (Ha nem pipálod be, akkor azt is számolja a rendszer a végösszeghez (12.000
+                                Ft/év)</label>
+                        </div>
+                </div>
+                <div class="form-group checkbox">
+                    <label for="exampleFormControlSelect1">Hány oldalad lesz (vagy onepage esetén hány blokk)?</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>Több (Ez esetben kérj egyedi ajánlatot kérlek)</option>
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2 checkbox">Választott modulok</div>
+                    <div class="col-sm-10 checkbox">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                                Rólunk modul
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                                Szolgáltatásaink modul
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                                Referenciáink modul
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                                Csapat modul
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                                Slider modul
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                                Galéria modul
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group checkbox">
+                    <label for="exampleFormControlSelect1">Van céges logód?</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Van</option>
+                        <option>Nincs</option>
+                        <option>Ezt is te készítsd el!</option>
+                    </select>
+                </div>
+                <div class="form-group checkbox">
+                    <label for="exampleFormControlSelect2">Milyen fizetési módod választasz?</label>
+                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                        <option>E-számla (50% a munka megkezdése előtt, 50% a befejezés után)</option>
+                        <option>Készpénzben a munka megkezdése előtt</option>
+                    </select>
+                </div>
+                <div class="form-group checkbox">
+                    <label for="exampleFormControlInput1">Számlázáshoz szükséges adatok</label>
+                    <input type="invoce-name" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Számlázási név">
+                </div>
+                <div class="form-row">
+                    <div class="col-7">
+                        <input type="text" class="form-control" placeholder="Város">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Cím">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Irányítószám">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Adószám">
+                    </div>
+                </div>
+                <div class="form-group checkbox">
+                    <label for="exampleFormControlTextarea1">Egyéb megjegyzés vagy kérés</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="button">
+                    <button type="button" class="button-dolg"><span>megrendelem</span></button>
+                </div>
+                </form>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row footer">
+            <div class="col-12">
+                <p>Minden Jog Fenntartva! - <span style="color: blueviolet; font-weight: 500;">Creative Circus Webdesign Agency</span> - 2020</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
