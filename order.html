@@ -33,6 +33,44 @@
             </div>
         </div>
     </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <form>
+                    <div class="form-group-temp checkbox">
+                        <label for="weather">Időjárás alapú akció</label>
+                        <select class="form-control" id="day">
+                            <option value="0">Hétfő</option>
+                            <option value="1">Kedd</option>
+                            <option value="2">Szerda</option>
+                            <option value="3">Csütörtök</option>
+                            <option value="4">Péntek</option>
+                            <option value="5">Szombat</option>
+                            <option value="6">Vasárnap</option>
+                        </select>
+                    </div>
+                    <div class="form-group-temp checkbox">
+                        <strong>Átlag hőmérséklet: <span id="average"></span> °C</strong><br>
+                        <strong>Maximális hőmérséklet: <span id="max"></span> °C</strong><br>
+                        <strong>Minimális hőmérséklet: <span id="min"></span> °C</strong>
+                    </div>
+                    <div class="form-group-temp checkbox">
+                        <strong>A kiválasztott napon <span id="temperature">0</span> °C várható</strong>
+                    </div>
+                    <div class="form-group-temp">
+                        <strong>Akció: <span id="offer"></span> a megrendeléshez!</strong>
+                    </div>
+                    <div class="button">
+                        <button type="button" onclick="weatherWidget()"
+                            class="button-dolg"><span>Ellenőrzés</span></button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
     <div class="main-heading">
         <h5>Megrendelő űrlap</h5>
         <h1>Állítsd össze a saját árajánlatodat</h1>
@@ -42,10 +80,16 @@
             <div class="col-2"></div>
             <div class="col-8">
                 <div class="form">
-                    <form>
+                    <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                        <strong>Kedves Érdeklődő!</strong> Kérlek töltsd ki a Megrendelő űrlapot!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="orderForm">
                         <div class="form-group checkbox">
                             <label for="exampleFormControlInput1">Megrendelő Neve</label>
-                            <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Név">
+                            <input type="name" name="név" class="form-control" placeholder="Név">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Cégnév / Projektnév</label>
@@ -54,122 +98,136 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email cím</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="név@példa.com">
+                            <input type="email" class="form-control" id="kötelező" placeholder="név@példa.com">
+                            <small class="form-text text-muted">*Kötelező</small>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Telefonszám</label>
-                            <input type="phone" class="form-control" id="exampleFormControlInput1" placeholder="+36...">
+                            <input type="phone" class="form-control" id="kötelező" placeholder="+36...">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Mivel foglalkozik a cég / projekt?</label>
-                            <input type="about" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Röviden">
+                            <input type="about" class="form-control" id="kötelező" placeholder="Röviden">
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Mi a célod a weboldallal? Kik az ügyfeleid? Milyen
+                            <label for="exampleFormControlTextarea1">Mi a célod a weboldallal? Kik az ügyfeleid?
+                                Milyen
                                 elképzeléseid vannak?</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="kötelező" rows="3"></textarea>
                         </div>
                         <div class="custom-control custom-switch checkbox">
                             <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                            <label class="custom-control-label" for="customSwitch1">Rendelkezem tárhellyel és domainnel
+                            <label class="custom-control-label" for="customSwitch1">Rendelkezem tárhellyel és
+                                domainnel
                                 (Ha nem pipálod be, akkor azt is számolja a rendszer a végösszeghez (12.000
                                 Ft/év)</label>
                         </div>
+                        <div class="form-group checkbox">
+                            <label for="exampleFormControlInput1">Oldalak száma</label>
+                            <input type="number" name="oldal" class="form-control" id="kötelező" placeholder="Oldalak"
+                                value="5">
+                            <small class="form-text text-muted">
+                                Minimum 3 maximum 12 darab!
+                            </small>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2 checkbox">Választott modulok</div>
+                            <div class="col-sm-10 checkbox">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rolunk-checkbox">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Rólunk modul
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Szolgáltatásaink modul
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Referenciáink modul
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Csapat modul
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Slider modul
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Galéria modul
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group checkbox">
+                            <label for="exampleFormControlSelect1">Van céges logód?</label>
+                            <select class="form-control" id="logo">
+                            </select>
+                        </div>
+                        <div class="form-group checkbox">
+                            <label for="exampleFormControlTextarea1">Egyéb megjegyzés vagy kérés</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="form-group checkbox">
+                            Fizetendő: <span class="show-amount">0</span> Ft
+                        </div>
+                        <div class="button">
+                            <button type="button" onclick="calcAmount()"
+                                class="button-dolg"><span>Kalkuláció</span></button>
+                        </div>
+                        <div class="button">
+                            <button type="submit" class="button-dolg"><span>megrendelem</span></button>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group checkbox">
-                    <label for="exampleFormControlInput1">Oldalak száma</label>
-                    <input type="number" name="oldal" class="form-control" id="exampleFormControlInput1" placeholder="Oldalak" value="5">
-                    <small class="form-text text-muted">
-                        Minimum 3 maximum 12 darab!
-                    </small>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-2 checkbox">Választott modulok</div>
-                    <div class="col-sm-10 checkbox">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="rolunk-checkbox">
-                            <label class="form-check-label" for="gridCheck1">
-                                Rólunk modul
-                            </label>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <div class="container-fluid invoice" id="invoice">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h5>Számlázási adatok</h5>
+                <form>
+                    <div class="form-group checkbox">
+                        <label for="exampleFormControlSelect2">Milyen fizetési módot választasz?</label>
+                        <select multiple class="form-control" id="exampleFormControlSelect2">
+                            <option>E-számla (50% a munka megkezdése előtt, 50% a befejezés után)</option>
+                            <option>Készpénzben a munka megkezdése előtt</option>
+                        </select>
+                    </div>
+                    <div class="form-group checkbox">
+                        <label for="exampleFormControlInput1">Számlázáshoz szükséges adatok</label>
+                        <input type="invoce-name" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Számlázási név">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-7">
+                            <input type="text" class="form-control" placeholder="Cím">
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1">
-                            <label class="form-check-label" for="gridCheck1">
-                                Szolgáltatásaink modul
-                            </label>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Város">
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1">
-                            <label class="form-check-label" for="gridCheck1">
-                                Referenciáink modul
-                            </label>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Irányítószám">
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1">
-                            <label class="form-check-label" for="gridCheck1">
-                                Csapat modul
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1">
-                            <label class="form-check-label" for="gridCheck1">
-                                Slider modul
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1">
-                            <label class="form-check-label" for="gridCheck1">
-                                Galéria modul
-                            </label>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Adószám">
                         </div>
                     </div>
-                </div>
-                <div class="form-group checkbox">
-                    <label for="exampleFormControlSelect1">Van céges logód?</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Van</option>
-                        <option>Nincs</option>
-                        <option>Ezt is te készítsd el!</option>
-                    </select>
-                </div>
-                <div class="form-group checkbox">
-                    <label for="exampleFormControlSelect2">Milyen fizetési módod választasz?</label>
-                    <select multiple class="form-control" id="exampleFormControlSelect2">
-                        <option>E-számla (50% a munka megkezdése előtt, 50% a befejezés után)</option>
-                        <option>Készpénzben a munka megkezdése előtt</option>
-                    </select>
-                </div>
-                <div class="form-group checkbox">
-                    <label for="exampleFormControlInput1">Számlázáshoz szükséges adatok</label>
-                    <input type="invoce-name" class="form-control" id="exampleFormControlInput1"
-                        placeholder="Számlázási név">
-                </div>
-                <div class="form-row">
-                    <div class="col-7">
-                        <input type="text" class="form-control" placeholder="Város">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Cím">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Irányítószám">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Adószám">
-                    </div>
-                </div>
-                <div class="form-group checkbox">
-                    <label for="exampleFormControlTextarea1">Egyéb megjegyzés vagy kérés</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <div class="form-group checkbox">
-                    Fizetendő: <span class="show-amount">0</span> Ft
-                </div>
-                <div class="button">
-                    <button type="button" onclick="calcAmount()" class="button-dolg"><span>megrendelem</span></button>
-                </div>
                 </form>
             </div>
             <div class="col-2"></div>
@@ -178,10 +236,13 @@
     <div class="container-fluid">
         <div class="row footer">
             <div class="col-12">
-                <p>Minden Jog Fenntartva! - <span style="color: blueviolet; font-weight: 500;">Creative Circus Webdesign Agency</span> - 2020</p>
+                <p>Minden Jog Fenntartva! - <span style="color: blueviolet; font-weight: 500;">Creative Circus
+                        Webdesign Agency</span> - 2020</p>
             </div>
         </div>
     </div>
 </body>
 <script src="/order.js"></script>
+<script src="/algo.js"></script>
+
 </html>
