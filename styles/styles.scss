@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300;1,400;1,700&family=Open+Sans:wght@300;400&display=swap');
 
+$base-color: beige;
+
 body{
 	margin: 0;
 	padding: 0;
@@ -64,7 +66,7 @@ a {
 	}
 
 	h1.hero-content {
-		color: beige;
+		color: $base-color;
 		font-size: 50px;
 		font-family: 'Merriweather', serif;
 		text-align: center;
@@ -72,7 +74,7 @@ a {
 	}
 
 	h3.hero-content{
-		color: beige;
+		color: $base-color;
 		font-size: 24px;
 		font-family: 'Merriweather', serif;
 		text-align: center;
@@ -81,7 +83,7 @@ a {
 	}
 
 	p.hero-content{
-		color: beige;
+		color: $base-color;
 		font-size: 18px;
 		font-family: 'Open Sans', sans-serif;
 		text-align: center;
@@ -100,7 +102,7 @@ h1{
 }
 
 .programContainer{
-	background-color: #fff8e1;
+	background-color: $base-color;
 }
 
 .programs{
@@ -182,7 +184,7 @@ h1{
 }
 
 .missionContainer{
-	background-color: #fff8e1;
+	background-color: $base-color
 }
 
 .mission{
