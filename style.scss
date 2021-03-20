@@ -1,0 +1,51 @@
+$primary-color: #242d38;
+$secondary-color: #efd592;
+
+*, ::after, ::before {
+	box-sizing: border-box;
+	border: 0 solid #e5e7eb;
+}
+
+.picture{
+	height: 61vh;
+	background-color: $primary-color;
+	flex: 1 1 50%;
+}
+
+.inner {
+	min-height: 100vh;
+	min-width: 100vw;
+}
+
+.content{
+	flex: 1 1 50%;
+}
+
+.burger-menu{
+	background-color: $primary-color;
+  box-shadow: 0 0 0 3px $secondary-color;
+	right: 1.25rem;
+	top: 1.25rem;
+}
+
+.burger-menu-line{
+	background-color: $secondary-color;
+}
+
+body{
+	background-color: $secondary-color;
+  color: #242d38;
+}
+
+@media screen and (min-width: 1024px){
+.picture {
+    min-height: 100%;
+    height: unset;
+}
+}
+
+@media screen and (max-width: 1024px){
+	.inner{
+		min-width: 100vw;
+	 }
+	}

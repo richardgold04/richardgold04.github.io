@@ -1,0 +1,55 @@
+*, ::after, ::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+}
+
+.picture {
+  height: 61vh;
+  background-color: #242d38;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+}
+
+.inner {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+}
+
+.burger-menu {
+  background-color: #242d38;
+  -webkit-box-shadow: 0 0 0 3px #efd592;
+          box-shadow: 0 0 0 3px #efd592;
+  right: 1.25rem;
+  top: 1.25rem;
+}
+
+.burger-menu-line {
+  background-color: #efd592;
+}
+
+body {
+  background-color: #efd592;
+  color: #242d38;
+}
+
+@media screen and (min-width: 1024px) {
+  .picture {
+    min-height: 100%;
+    height: unset;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .inner {
+    min-width: 100vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */
