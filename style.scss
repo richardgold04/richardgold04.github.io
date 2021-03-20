@@ -38,14 +38,20 @@ body{
 }
 
 @media screen and (min-width: 1024px){
-.picture {
-    min-height: 100%;
-    height: unset;
-}
-}
-
+	.picture {
+			min-height: 100%;
+			height: unset;
+	 }
+	}
+	
 @media screen and (max-width: 1024px){
 	.inner{
-		min-width: 100vw;
+			min-width: 100vw;
+	 }
+	}
+	
+@media (min-width: 1024px){
+	.lg\:mr-28 {
+			margin-right: 7rem;
 	 }
 	}
